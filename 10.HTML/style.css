@@ -1,0 +1,40 @@
+body{
+    background-image: url(./);
+}
+#navbarNav{
+    justify-content: end  ;
+}
+.titulo {
+    font-family: 'Gasoek One', sans-serif;
+    font-style: oblique;
+    font-weight: bolder;
+}
+
+#cuerpoGen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+h2 {
+    font-family: 'Covered By Your Grace', cursive;
+}
+
+footer {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+footer h3 {
+    color: #fff;
+    font-size: 80;
+}
+
+footer p {
+
+    color: bisque;
+}

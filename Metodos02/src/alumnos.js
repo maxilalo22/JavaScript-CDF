@@ -38,16 +38,16 @@ const btnDate = () => {
     })
 
     bodyTableAlumnos.innerHTML = datos.join('')
-    thridColumn.innerHTML= 'DNI'
+    thridColumn.innerHTML = 'DNI'
 
-} 
+}
 
 
 
 // BOTON PROMEDIOS => Deberia devolver la tabla de alumnos con el promedio de cada alumno, este consta en 3 notas (examen1, examen2, examen3).
 const btnPromedios = () => {
     const datos = alumnos.map(alumnos => {
-        const resultado = (alumnos.examen1 + alumnos.examen2 + alumnos.examen3)/3
+        const resultado = (alumnos.examen1 + alumnos.examen2 + alumnos.examen3) / 3
         return `
             <tr>
                 <td>${alumnos.nombre}</td>
@@ -58,7 +58,7 @@ const btnPromedios = () => {
     })
 
     bodyTableAlumnos.innerHTML = datos.join('')
-    thridColumn.innerHTML= 'PROMEDIO'
+    thridColumn.innerHTML = 'PROMEDIO'
 }
 
 
@@ -66,9 +66,9 @@ const btnPromedios = () => {
 // Además deberás crear una columna* con el porcentaje de asistencias.
 // *la columna se deberá eliminar si se selecciona otro boton
 const btnAsistencia = () => {
-        const datos = alumnos.map(alumnos => {
-            const resultado = alumnos.asistencias*100/24
-            return `
+    const datos = alumnos.map(alumnos => {
+        const resultado = alumnos.asistencias * 100 / 24
+        return `
                 <tr>
                     <td>${alumnos.nombre}</td>
                     <td>${alumnos.apellido}</td>
@@ -77,18 +77,36 @@ const btnAsistencia = () => {
                 </tr>
                 
             `
-        })
-        bodyTableAlumnos.innerHTML = datos.join('')
-        thridColumn.innerHTML= 'Asistencia'
-        headerTable.innerHTML += '<th id="delete">Promedio asis.</th>'
-        addColumn = true
+    })
+    bodyTableAlumnos.innerHTML = datos.join('')
+    thridColumn.innerHTML = 'Asistencia'
+    headerTable.innerHTML += '<th id="delete">Promedio asis.</th>'
+    addColumn = true
 }
 
 
 // BOTON APROBADOS => - Deberia devolver la tabla de alumnos en ella solo aquellos que tengan aprobado el cursado, en base a las siguientes condiciones:
 // Un promedio ≥ 70 y un porcentaje de asistencia ≥ 70
 const btnAprobados = () => {
+    const aprobados = alumnos.filter(alumnos ={
+        let asistencia = alumnos.asistencias * 100 / 24
+        let promedio = (alumnos.examen1 + alumnos.examen2 + alumnos.examen3) / 3
+        return promedio >=70 && asistencia>=70
+    })
+    
+    const datos = alumnos.map(alumnos => {
+        return `
+            <tr>
+                <td>${alumnos.nombre}</td>
+                <td>${alumnos.apellido}</td>
+                <td>Aprobado</td>  
+            </tr>
+            
+        `
+        }
 
+
+    })
 }
 
 
